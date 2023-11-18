@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mess Counter</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-color: antiquewhite;
+            /* background-size: cover; */
+            display: flex;
+
+            justify-content: center;
+            align-items: center;
+            /* align-items: center; */
+        }
+        h1 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        h2 {
+            font-size: 50px;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        p{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        button {
+            border: none;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            font-size: 20px;
+            color: wheat;
+            font-weight: bold;
+            width: 200px;
+            border-radius: 10px;
+            display: block;
+            margin: 5px auto;
+        }
+        #increment-btn {
+            background: darkcyan;
+        }
+        #save-btn, #decrement-btn {
+            background: darkcyan;
+        }
+        .mainContainer {
+            max-width: 400px;
+            width: 400px;
+            background-color: aliceblue;
+            /* padding-top: 40px;
+            padding-right: 40px;
+            padding-left: 40px;
+            padding-bottom: 40px; */
+            /* border-radius: 100px; */
+            padding: 80px;
+            text-align: center;
+            border-style: dashed;
+            border-color: darkgoldenrod;
+        }
+        .containerOne {
+            border-style: double;
+            padding: 20px;
+            border-color: darkgoldenrod;
+            margin-bottom: 40px;
+        }
+        .containerTwo {
+            border-style: double;
+            padding: 20px;
+            border-color: darkgoldenrod;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="mainContainer">
+        <div class="containerOne">
+            <h1>NON - VEG</h1>
+            <h2 id="count-numOne">0</h2>
+            <button id="increment-btn" onclick="increment()">Increment</button>
+            <button id="decrement-btn" onclick="decrement()">Decrement</button>
+            <button id="save-btn" onclick="save()">Save</button>
+            <p id="save-elOne">Previous Entries : </p>
+        </div>
+        <div class="containerTwo">
+            <h1>VEG</h1>
+            <h2 id="count-numTwo">0</h2>
+            <button id="increment-btn" onclick="incrementTwo()">Increment</button>
+            <button id="decrement-btn" onclick="decrementTwo()">Decrement</button>
+            <button id="save-btn" onclick="saveTwo()">Save</button>
+            <p id="save-elTwo">Previous Entries : </p>
+        </div>
+    </div>
+    
+    
+    <!-- <button id="save-btn">Save</button> -->
+    <script>
+        let countElOne = document.getElementById("count-numOne")
+        let saveElOne = document.getElementById("save-elOne")
+        let countOne = 0
+        
+        function increment(){
+            countOne += 1
+            countElOne.innerText = countOne
+        }
+
+        function decrement(){
+            countOne -= 1
+            if(countOne >= 0){
+                countElOne.innerText = countOne
+            }
+            else{
+                countOne = 0
+                countElOne.innerText = 0
+            }
+            
+            
+        }
+
+        function save(){
+            console.log(countOne)
+            let countStr = countOne + " | "
+            saveElOne.textContent += countStr
+            countOne = 0
+            countElOne.textContent = 0
+            
+            // count = 0
+            // countEl.innerText = count
+        }
+
+        let countElTwo = document.getElementById("count-numTwo")
+        let saveElTwo = document.getElementById("save-elTwo")
+        let count = 0
+        
+        function incrementTwo(){
+            count += 1
+            countElTwo.innerText = count
+        }
+
+        function decrementTwo(){
+            count -= 1
+            if(count >= 0){
+                countElTwo.innerText = count    
+            }
+            else{
+                count = 0
+                countElTwo.innerText = 0
+            }
+            
+            
+        }
+
+        function saveTwo(){
+            console.log(count)
+            let countStr = count + " | "
+            saveElTwo.textContent += countStr
+            count = 0
+            countElTwo.textContent = 0
+            
+            // count = 0
+            // countEl.innerText = count
+        }
+
+    </script>
+</body>
+</html>
